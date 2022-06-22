@@ -1,0 +1,4 @@
+const HTTP_OK_STATUS = 200;
+const HTTP_500_STATUS = 500;
+
+module.exports = { HTTP_OK_STATUS, HTTP_500_STATUS };
