@@ -1,8 +1,15 @@
 const fs = require('fs/promises');
 
-async function readFile(file) {
+const readFile = async (file) => {
     const data = await fs.readFile(file, { encoding: 'utf8' });
-    return file.includes('.json') ? JSON.parse(data) : data;
-}
+    try {
+        if (file.includes('.json')) {
+            return JSON.parse(data);
+        }
+    } catch (error) {
+        return data;
+    }
+    return data;
+};
 
 module.exports = readFile;
