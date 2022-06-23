@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.post('/', validateEmail, validatePassword, rescue(async (_req, res) => {
     const token = randomToken();
-    await writeFile('../token.json', { token });
+    await writeFile('token.json', JSON.stringify(token));
     res.status(HTTP_OK).json({ token });
 }));
 
