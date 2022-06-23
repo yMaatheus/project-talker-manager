@@ -1,13 +1,13 @@
 const express = require('express');
 const rescue = require('express-rescue');
-const { HTTP_OK, HTTP_404 } = require('../helpers/httpCodeStatus');
+
 const randomToken = require('../helpers/token');
+const { HTTP_OK } = require('../helpers/httpCodeStatus');
+const { validateEmail, validatePassword } = require('../middlewares/loginMiddleware');
 
 const router = express.Router();
 
-router.post('/', rescue(async (req, res) => {
-    const { email, password } = req.body;
-    if (!email || !password)res.status(HTTP_404).json({ message: 'Email and password required' });
+router.post('/', validateEmail, validatePassword, rescue(async (req, res) => {
     const token = randomToken();
     res.status(HTTP_OK).json({ token });
 }));
