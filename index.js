@@ -21,11 +21,11 @@ app.use((req, _res, next) => {
   next();
 });
 
-const talkerRouter = require('./routes/talker');
+const talkerRouter = require('./routers/talker');
 
 app.use('/talker', talkerRouter);
 
-const loginRouter = require('./routes/login');
+const loginRouter = require('./routers/login');
 
 app.use('/login', loginRouter);
 
