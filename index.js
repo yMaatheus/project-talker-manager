@@ -25,6 +25,10 @@ const talkerRouter = require('./routes/talker');
 
 app.use('/talker', talkerRouter);
 
+const loginRouter = require('./routes/login');
+
+app.use('/login', loginRouter);
+
 app.use((err, _req, res, _next) =>
   res.status(HTTP_500)
     .json({ error: `Erro: ${err.message}` }));
