@@ -29,6 +29,20 @@ router.get('/', rescue(async (_req, res) => {
   res.status(201).json(newTalker);
 }));
 
+router.get('/search', validateToken, rescue(async (req, res) => {
+  const { q } = req.query;
+  const talkers = await readFile(TALKER_FILE);
+
+  if (q == null) {
+    res.status(200).json(talkers);
+  }
+  
+  const search = q.toLowerCase();
+  const searchTalkers = talkers.filter(({ name }) => name.toLowerCase().includes(search));
+
+  res.status(200).json(searchTalkers);
+}));
+
 router.get('/:id', rescue(async (req, res) => {
   const { id } = req.params;
   const talkers = await readFile(TALKER_FILE);
