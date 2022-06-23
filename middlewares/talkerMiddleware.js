@@ -44,7 +44,7 @@ const validateWatchedAt = async (req, res, next) => {
 
 const validateRate = async (req, res, next) => {
     const { talk: { rate } } = req.body;
-    if (!rate) {
+    if (rate == null) {
         return res.status(400).json({ message: 'O campo "rate" é obrigatório' });
     }
     if (rate < 1 || rate > 5) {
