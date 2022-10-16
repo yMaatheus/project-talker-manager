@@ -6,6 +6,8 @@ Projeto realizado no módulo de Back-end durante o curso de Desenvolvimento Web 
 
 Foi desenvolvida uma API de um CRUD (Create, Read, Update e Delete) de palestrantes.
 
+[Documentação](https://documenter.getpostman.com/view/21401984/2s847BVGch)
+
 ### 📋 Pré-requisitos
 
 Para conseguir seguir este README e rodar o projeto você pode precisar dos seguintes itens:
