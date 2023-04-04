@@ -31,7 +31,7 @@ const loginRouter = require('./routers/login');
 
 app.use('/login', loginRouter);
 
-app.use('/doc', swaggerUi.serve, swaggerUi.setup(doc));
+app.use('/api-docs', swaggerUi.serveFiles(doc), swaggerUi.setup(doc));
 
 app.use((err, _req, res, _next) =>
   res.status(500)
