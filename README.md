@@ -35,6 +35,7 @@ npm install
 Então podemos rodar o projeto:
 
 ```
+npm run restore
 npm start
 ```
 
